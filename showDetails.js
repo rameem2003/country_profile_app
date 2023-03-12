@@ -9,7 +9,7 @@ countriesInput.addEventListener("change", () => {
     if(countriesInput.value != ""){
 
         fetch(`https://restcountries.com/v3.1/name/${countriesInput.value}?fullText=true`).then(responce => responce.json()).then(data => {
-            // console.log(data);
+            console.log(data);
 
             const {common, official} = data[0].name;
             const capital = data[0].capital[0];
@@ -43,6 +43,7 @@ countriesInput.addEventListener("change", () => {
             
         }).catch(err => {
             infoBox.innerHTML = `<h1>${err.message}</h1>`;
+            console.log(err);
         })
         
     }
